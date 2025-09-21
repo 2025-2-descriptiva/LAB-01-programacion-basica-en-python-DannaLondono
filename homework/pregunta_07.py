@@ -25,3 +25,23 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    import csv 
+    
+    conteo = {}
+    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", 
+              newline='', encoding="utf-8") as archivo:
+        lector = csv.reader(archivo, delimiter="\t")
+        for fila in lector:
+            letra = fila[0]
+            numero = int(fila[1])
+
+            if numero not in conteo:
+                conteo[numero] = [letra] 
+            else:
+                conteo[numero].append(letra)
+
+    resultado = [(numero, conteo[numero]) for numero in sorted(conteo.keys())]
+    return resultado
+
+print (pregunta_07())
+

@@ -15,3 +15,16 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    import csv 
+    conteo = {}
+    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", 
+              newline='', encoding="utf-8") as archivo:
+        lector = csv.reader(archivo, delimiter="\t")
+        for fila in lector:
+            letra = fila[0]
+            columna5 = fila[4].split(",") 
+            suma_columna5 = sum(int(item.split(":")[1]) for item in columna5)
+            conteo[letra] = conteo.get(letra, 0) + suma_columna5
+
+    return dict(sorted(conteo.items()))
+print(pregunta_12())

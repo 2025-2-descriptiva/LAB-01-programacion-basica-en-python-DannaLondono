@@ -26,3 +26,31 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    import csv
+    conteo = {}
+    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", 
+              newline='', encoding="utf-8") as archivo:
+        lector = csv.reader(archivo, delimiter="\t")
+        for fila in lector:
+            diccionario = fila[4].split(",")
+            for elemento in diccionario:
+                clave, valor = elemento.split(":")
+                valor = int(valor)
+
+                if clave not in conteo:
+
+                    conteo[clave] = [valor, valor] 
+                else:
+                    
+                    if valor < conteo[clave][0]:
+                        conteo[clave][0] = valor
+                 
+                    if valor > conteo[clave][1]:
+                        conteo[clave][1] = valor
+    resultado = [(clave, conteo[clave][0], conteo[clave][1]) for clave in sorted(conteo.keys())]                       
+    return resultado
+print (pregunta_06())
+
+
+
+        

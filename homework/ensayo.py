@@ -1,11 +1,3 @@
-"""
-Escriba el codigo que ejecute la accion solicitada en cada pregunta. Los
-datos requeridos se encuentran en el archivo data.csv. En este laboratorio
-solo puede utilizar las funciones y librerias basicas de python. No puede
-utilizar pandas, numpy o scipy.
-"""
-
-
 def pregunta_05():
     """
     Retorne una lista de tuplas con el valor maximo y minimo de la columna 2
@@ -13,7 +5,6 @@ def pregunta_05():
 
     Rta/
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
-
     """
     import csv 
     
@@ -26,15 +17,16 @@ def pregunta_05():
             numero = int(fila[1])
 
             if letra not in conteo:
-                conteo[letra] = [numero, numero] 
+                conteo[letra] = [numero, numero]  # [min, max]
             else:
-                
+                # actualizar mínimo
                 if numero < conteo[letra][0]:
                     conteo[letra][0] = numero
-             
+                # actualizar máximo
                 if numero > conteo[letra][1]:
                     conteo[letra][1] = numero
 
+    # Retornar lista de tuplas en orden alfabético: (letra, max, min)
     resultado = [(letra, conteo[letra][1], conteo[letra][0]) for letra in sorted(conteo.keys())]
     return resultado
 

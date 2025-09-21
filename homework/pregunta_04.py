@@ -26,3 +26,21 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    import csv 
+    
+    conteo_mes={}
+    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", newline='', encoding="utf-8") as archivo:
+     lector = csv.reader(archivo,  delimiter="\t")
+     for fila in lector:
+        fecha = fila[2] 
+        mes = fecha.split("-")[1]
+        conteo_mes[mes] = conteo_mes.get(mes, 0) + 1
+    resultado = sorted(conteo_mes.items())
+ 
+    return resultado
+
+print(pregunta_04())
+
+
+
+

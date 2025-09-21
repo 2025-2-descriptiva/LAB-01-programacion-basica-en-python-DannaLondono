@@ -15,3 +15,15 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    import csv 
+    conteo= {}
+    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", newline='', encoding="utf-8") as archivo:
+     lector = csv.reader(archivo,  delimiter="\t")  
+     for fila in lector:
+            
+             tupla= fila [0]
+             suma= int(fila [1]) 
+             conteo[tupla]= conteo.get(tupla,0) + suma
+    return (sorted(conteo.items()))
+print (pregunta_03())
+

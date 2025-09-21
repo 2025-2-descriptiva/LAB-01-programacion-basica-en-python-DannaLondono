@@ -24,3 +24,20 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    import csv 
+    
+    conteo = {}
+    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", 
+              newline='', encoding="utf-8") as archivo:
+        lector = csv.reader(archivo, delimiter="\t")
+        for fila in lector:
+            diccionario = fila[4].split(",")
+            for elemento in diccionario:
+                clave, _ = elemento.split(":")
+                if clave not in conteo:
+                    conteo[clave] = 1
+                else:
+                    conteo[clave] += 1  
+    resultado= conteo
+    return resultado
+print(pregunta_09())

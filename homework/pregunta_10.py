@@ -20,3 +20,17 @@ def pregunta_10():
 
 
     """
+    import csv
+    
+    resultado = []
+    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", 
+              newline='', encoding="utf-8") as archivo:
+        lector = csv.reader(archivo, delimiter="\t")
+        for fila in lector:
+            letra = fila[0]
+            columna4 = fila[3].split(",")
+            columna5 = fila[4].split(",")
+            resultado.append((letra, len(columna4), len(columna5)))
+    
+    return resultado
+print(pregunta_10())
