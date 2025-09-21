@@ -28,7 +28,7 @@ def pregunta_06():
     """
     import csv
     conteo = {}
-    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", 
+    with open("files/input/data.csv", 
               newline='', encoding="utf-8") as archivo:
         lector = csv.reader(archivo, delimiter="\t")
         for fila in lector:

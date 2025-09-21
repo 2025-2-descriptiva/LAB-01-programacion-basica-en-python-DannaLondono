@@ -16,7 +16,7 @@ def pregunta_01():
     """
     import csv 
     suma = 0
-    with open("C:/Users/DANNA/Documents/GitHub/LAB-01-programacion-basica-en-python-DannaLondono/files/input/data.csv", newline='', encoding="utf-8") as archivo:
+    with open("files/input/data.csv", newline='', encoding="utf-8") as archivo:
         lector = csv.reader(archivo,  delimiter="\t")  
         for fila in lector:
             if len(fila) > 1:   
